@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hindustan School Alumni Association (HASAA)</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+        content="Official website of Hindustan School Alumni Association (HASAA). Reconnect with alumni, contribute, volunteer, donate, and support Hindustan Antibiotics School." />
+
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hasaa.org/" />
+
+  <!-- =====================
+       DESIGN SYSTEM
+       ===================== -->
+  <style>
+:root {
+  /* HASAA brand purples */
+  --primary: #4b3f8c;        /* main purple */
+  --primary-dark: #332b66;   /* darker masthead purple */
+  --accent: #6a5acd;         /* lighter accent purple */
+
+  /* Neutrals */
+  --bg: #f7f9fb;
+  --text: #1a1a1a;
+  --muted: #555;
+  --card: #ffffff;
+  --border: #e3e6ea;
+
+  /* Focus / accessibility */
+  --focus: #b9a9ff;
+}
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+@media (min-width: 900px) {
+  nav#toc { display: block; }
+  #toc-toggle { display: none; }
+
+  /* Align main content with TOC width + gap */
+  main {
+    margin-left: 260px;  /* 220 TOC + 40 breathing space */
+    padding-right: 2rem;
+  }
+
+  .footer-inner {
+    margin-left: 260px;
+    padding-right: 2rem;
+  }
+}
+
+
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    /* =====================
+       LAYOUT
+       ===================== */
+
+/* =====================
+   REFINED MASTHEAD
+   ===================== */
+
+/* Purple theme derived from logo */
+:root {
+  --hasaa-purple: #4b3f8c;
+  --hasaa-purple-dark: #332b66;
+}
+
+/* Header container */
+header#welcome {
+  background: linear-gradient(
+    135deg,
+    var(--hasaa-purple-dark),
+    var(--hasaa-purple)
+  );
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  text-align: left; /* no longer centered */
+}
+
+/* Inner layout */
+.masthead-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Logo */
+.masthead-logo {
+  width: 72px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* Text block */
+.masthead-text h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.masthead-text p {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #e6e9f5;
+  max-width: 720px;
+}
+
+/* Thin divider below masthead */
+header#welcome::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: 1rem;
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0.4),
+    rgba(255,255,255,0)
+  );
+}
+
+/* =====================
+   TOC SAFETY (NO OVERLAP)
+   ===================== */
+
+@media (min-width: 900px) {
+  nav#toc {
+    top: 120px; /* was 150px; now aligned with shorter masthead */
+  }
+}
+@media (min-width: 900px) {
+  .masthead-inner {
+    margin-left: 260px;   /* SAME as main */
+    padding-right: 2rem;
+  }
+}
+
+    header h1 {
+      margin: 0;
+      font-size: 1.9rem;
+    }
+
+    header p {
+      max-width: 720px;
+      margin: 0.75rem auto 0;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    section h2 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
+    /* =====================
+       CTA STYLES
+       ===================== */
+
+    .cta-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.65rem 1.1rem;
+      border-radius: 4px;
+      font-weight: 600;
+      margin-top: 0.75rem;
+    }
+
+    .cta-secondary {
+      display: inline-block;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 0.5rem 0.9rem;
+      border-radius: 4px;
+      margin: 0.4rem 0.4rem 0 0;
+    }
+
+    /* =====================
+       TABLES (ACCESSIBLE)
+       ===================== */
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    th, td {
+      padding: 0.6rem;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+
+    th {
+      background: #eef3f7;
+      font-weight: 600;
+    }
+
+    caption {
+      text-align: left;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    /* =====================
+       FLOATING TOC
+       ===================== */
+
+/* =====================
+   FLOATING TOC (REFINED)
+   ===================== */
+
+nav#toc {
+  position: fixed;
+  top: 120px;
+  left: 1.5rem;
+
+  width: 240px;              /* 🔑 wider column */
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1rem 0.75rem;
+
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+nav#toc strong {
+  color: var(--primary-dark);
+}
+
+nav#toc a {
+  color: var(--primary);
+  text-decoration-color: rgba(75,63,140,0.35);
+  white-space: nowrap;       /* 🔑 prevents wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis;   /* safety for very small screens */
+}
+
+nav#toc a:hover {
+  color: var(--primary-dark);
+  text-decoration-color: var(--primary);
+}
+
+nav#toc {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+    @media (min-width: 900px) {
+      nav#toc { display: block; }
+      #toc-toggle { display: none; }
+      main { margin-left: 260px; }
+    }
+
+    /* =====================
+       INTENT HIGHLIGHT
+       ===================== */
+
+    .highlight {
+      animation: glow 2.5s ease-out;
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 0 rgba(29,111,165,0.0); }
+      30% { box-shadow: 0 0 0 4px rgba(29,111,165,0.35); }
+      100% { box-shadow: 0 0 0 rgba(29,111,165,0.0); }
+    }
+
+    /* =====================
+       FOOTER
+       ===================== */
+
+/* =====================
+   FOOTER – PURPLE THEME
+   ===================== */
+
+footer {
+  background: linear-gradient(
+    135deg,
+    var(--primary-dark),
+    var(--primary)
+  );
+  color: #ffffff;
+  padding: 2rem 1rem;
+}
+
+    footer img {
+      width: 60px;
+      height: auto;
+      margin-bottom: 0.75rem;
+    }
+
+    footer address {
+      font-style: normal;
+      margin-top: 0.75rem;
+    }
+
+	.footer-inner {
+	  max-width: 1100px;
+	  margin: 0 auto;
+	  display: flex;
+	  gap: 1.25rem;
+	  align-items: flex-start;
+	}
+
+	/* Logo */
+	.footer-logo {
+	  width: 64px;
+	  height: auto;
+	  flex-shrink: 0;
+	}
+
+	/* Text block */
+	.footer-text p {
+	  margin: 0.4rem 0;
+	}
+
+	footer address {
+	  font-style: normal;
+	  margin-top: 0.5rem;
+	}
+
+	/* Desktop: respect floating TOC */
+	@media (min-width: 900px) {
+	  .footer-inner {
+	    margin-left: 260px; /* SAME as main content */
+	  }
+	}
+
+	/* Mobile: stack neatly */
+	@media (max-width: 899px) {
+	  .footer-inner {
+	    flex-direction: column;
+	    align-items: center;
+	    text-align: center;
+	  }
+
+	  .footer-logo {
+	    margin-bottom: 0.75rem;
+	  }
+	}
+
+/* =====================
+   SOCIAL ICONS – PURPLE BASE
+   ===================== */
+
+.social-icons a {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(75,63,140,0.12); /* soft HASAA purple */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.social-icons svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--primary);   /* 🔑 HASAA purple */
+}
+
+/* Hover behavior (brand colors remain correct) */
+.social-icons a:hover {
+  transform: translateY(-2px);
+}
+
+.social-icons a.facebook:hover { background: #1877f2; }
+.social-icons a.whatsapp:hover { background: #25d366; }
+.social-icons a.x:hover        { background: #000000; }
+.social-icons a.youtube:hover  { background: #ff0000; }
+
+.social-icons a:hover svg {
+  fill: #ffffff;
+}
+
+/* =====================
+   HERITAGE CAROUSEL
+   ===================== */
+
+.heritage-carousel {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 1rem;
+}
+
+.carousel-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-track {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  text-align: center;
+  display: none;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+.carousel-slide img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: #f7f9fb;
+}
+
+.carousel-slide figcaption {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.carousel-slide figcaption small {
+  display: block;
+  font-weight: 400;
+  color: var(--primary-dark);
+  opacity: 0.85;
+}
+
+/* Buttons */
+.carousel-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.carousel-btn:hover {
+  opacity: 0.9;
+}
+
+.carousel-btn.prev {
+  margin-right: 0.5rem;
+}
+
+.carousel-btn.next {
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.3rem;
+  }
+}
+
+/* =====================
+   FOOTER REFINEMENT
+   ===================== */
+
+.footer-inner {
+  align-items: flex-start; /* already added, keep it */
+  gap: 2.5rem;             /* give breathing room between columns */
+}
+
+/* Right-side legal disclaimer */
+.footer-disclaimer {
+  max-width: 420px;        /* key: limits line length */
+  font-size: 0.78rem;      /* smaller than body text */
+  line-height: 1.45;
+  border-left: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Paragraph rhythm */
+.footer-disclaimer p {
+  margin: 0 0 0.6rem 0;
+}
+
+/* Copyright line */
+.footer-disclaimer .copyright {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+}
+
+/* Mobile: make it full-width but still calm */
+@media (max-width: 899px) {
+  .footer-disclaimer {
+    max-width: 100%;
+    font-size: 0.8rem;
+  }
+}
+
+.footer-disclaimer {
+  padding-left: 1.25rem;
+  border-left: 1px solid rgba(255,255,255,0.15);
+}
+
+
+.about-banner {
+  margin: 0 0 1.25rem;
+}
+
+.about-banner img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+/* =====================
+   FIX TOC WRAPPING (FINAL)
+   ===================== */
+
+nav#toc strong {
+  display: block;          /* force new line */
+  margin-bottom: 0.5rem;
+}
+
+nav#toc a {
+  display: block;          /* 🔑 vertical list */
+  white-space: nowrap;     /* prevent internal wrapping */
+}
+
+/* =====================
+   FIX FOOTER TEXT WRAP
+   ===================== */
+
+.footer-text {
+  max-width: 420px;
+  flex-shrink: 0;          /* 🔑 do not compress */
+}
+
+.footer-text address {
+  white-space: nowrap;     /* keep address lines intact */
+}
+
+/* =====================
+   HASAA PRIMARY CTA
+   ===================== */
+
+.hasaa-cta {
+  margin: 1.75rem 0 0;
+}
+
+.cta-primary {
+  display: inline-block;
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-dark)
+  );
+  color: #ffffff;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cta-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(75,63,140,0.35);
+}
+
+.cta-note {
+  margin: 0.5rem 0 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* =====================
+   COMBINED INVOLVEMENT CARD
+   ===================== */
+
+.combined-card .section-intro {
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+  max-width: 720px;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1.75rem;
+}
+
+.two-col h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-dark);
+}
+
+.two-col ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.cta-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cta-secondary {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Mobile stacking */
+@media (max-width: 768px) {
+  .two-col {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+<!-- =====================
+     FLOATING TOC
+     ===================== -->
+<nav id="toc" aria-label="Page sections">
+  <strong>Contents</strong>
+  <a href="#about">About</a>
+  <a href="#next-steps">Next Steps</a>
+  <a href="#events">Visit School</a>
+  <a href="#activities">Activities</a>
+  <a href="#office-bearers">Office Bearers</a>
+  <a href="#donate">Donate</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div id="toc-toggle" aria-label="Open table of contents" role="button" tabindex="0">☰</div>
+
+<header id="welcome">
+  <div class="masthead-inner">
+    <img
+      src="assets/images/hasaa-logo-large.png"
+      alt="Hindustan Antibiotics School Alumni Association logo"
+      class="masthead-logo"
+    />
+
+    <div class="masthead-text">
+      <h1>Hindustan School Alumni Association (HASAA)</h1>
+      <p>
+        Official alumni association of former students of Hindustan Antibiotics School.
+        Reconnect, contribute, and give back.
+      </p>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- =====================
+     HISTORIC HERITAGE CAROUSEL
+     ===================== -->
+<section class="heritage-carousel" aria-label="Historic photographs and inauguration plaques">
+  <div class="carousel-container">
+
+    <button class="carousel-btn prev" aria-label="Previous slide">‹</button>
+
+    <div class="carousel-track">
+
+      <!-- Slide 1 : Foundation stone plaque -->
+      <figure class="carousel-slide active">
+        <img
+          src="assets/images/Inscription-1.jpg"
+          alt="Foundation stone laid by Shri Lal Bahadur Shastri on 20 July 1958"
+        />
+        <figcaption>
+          Foundation stone laid by Shri Lal Bahadur Shastri
+          <br><small>20 July 1958</small>
+        </figcaption>
+      </figure>
+
+      <!-- Slide 2 : Historic inauguration photographs -->
+      <figure class="carousel-slide">
+        <img
+          src="assets/images/nehru_shastri_gandhi.jpg"
+          alt="Historic photographs of Jawaharlal Nehru, Lal Bahadur Shastri, and Indira Gandhi during school events"
+        />
+        <figcaption>
+          Historic moments with national leaders
+          <br><small>Jawaharlal Nehru • Lal Bahadur Shastri • Indira Gandhi</small>
+        </figcaption>
+      </figure>
+
+      <!-- Slide 3 : Inauguration plaque -->
+      <figure class="carousel-slide">
+        <img
+          src="assets/images/School-Inauguration-Stone-combined.jpg"
+          alt="School building inaugurated by Pandit Jawaharlal Nehru on 4 June 1960"
+        />
+        <figcaption>
+          School building inaugurated by Pandit Jawaharlal Nehru
+          <br><small>4 June 1960</small>
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <button class="carousel-btn next" aria-label="Next slide">›</button>
+
+  </div>
+</section>
+
+<section id="about">
+  <h2>About HASAA</h2>
+
+  <!-- Banner image -->
+  <div class="about-banner">
+    <img
+      src="assets/images/hasaa-banner.jpg"
+      alt="Distinguished alumni of Hindustan Antibiotics School"
+    />
+  </div>
+
+  <p>
+    Since its inception, the Hindustan Antibiotics School has been the alma-mater for
+    thousands of successful students who have gone on to make a name for themselves
+    in various fields across the world. Many of these alumni continue to share a deep
+    emotional bond with their school and have long wished to contribute meaningfully
+    to its progress and development.
+  </p>
+
+  <p>
+    Over the years, several alumni visited the school and expressed their desire to
+    give back. However, in the absence of a formally established alumni association,
+    these efforts remained scattered and limited in impact.
+  </p>
+
+  <p>
+    In 2011, a group of alumni from the <strong>1998 SSC batch</strong> decided to take
+    a more structured and long-term approach. After extensive groundwork and
+    interactions with school authorities, teachers, administrators, the school
+    committee, the D. E. Society, and fellow alumni, they laid the foundation for a
+    formally registered alumni body.
+  </p>
+
+  <p>
+    This effort received immense encouragement and support from
+    <strong>Mr. Burse</strong> (Headmaster, Secondary Unit),
+    <strong>Mrs. Dongre</strong> (Headmistress, Primary Unit),
+    <strong>Dr. Savita Kelkar</strong> (Chairperson, School Committee),
+    along with many other dedicated teachers and staff members.
+  </p>
+
+  <p>
+    The registration of the <strong>Hindustan Antibiotics School Alumni Association</strong>,
+    abbreviated as <strong>HASAA</strong>, was completed in
+    <strong>March 2012</strong> under Registration No.
+    <strong>MAH 348/2012/Pune</strong>.
+    HASAA is the official alumni association of Hindustan Antibiotics School, formally
+    recognised and endorsed by both the school authorities and the D. E. Society.
+  </p>
+
+  <p>
+    HASAA aims to reconnect and engage the extensive alumni network that Hindustan
+    Antibiotics School has built over the decades, and to create a common platform
+    through which alumni can contribute to the school and benefit from mutual
+    collaboration and support.
+  </p>
+
+  <p>
+    If you are an alumnus of Hindustan Antibiotics School, we warmly invite you to join
+    HASAA and become a member. You may register online or download the membership form
+    and submit it by post.
+
+    <div class="hasaa-cta">
+	  <a
+	    href="https://forms.gle/CLYLnd5KFzwAej4S7"
+	    target="_blank"
+	    rel="noopener"
+	    class="cta-primary"
+	  >
+	    Join HASAA / Register as an Alumnus
+	  </a>
+
+	  <p class="cta-note">
+	    Takes less than 2 minutes · Opens Google Form
+	  </p>
+	</div>
+
+
+  </p>
+
+  <!-- Social links (unchanged) -->
+  <div class="social-icons" aria-label="HASAA social media links">
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/HASAA2012"
+       target="_blank"
+       rel="noopener"
+       aria-label="HASAA on Facebook"
+       class="brand facebook">
+      <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+        <path d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24h11.495v-9.294H9.691V11.41h3.13V8.797c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24h-1.918c-1.504 0-1.796.715-1.796 1.763v2.31h3.587l-.467 3.296h-3.12V24h6.116C23.403 24 24 23.403 24 22.674V1.326C24 .597 23.403 0 22.675 0z"/>
+      </svg>
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://chat.whatsapp.com/CfbNk8yJzM0JDDag1Qj7Vh"
+       target="_blank"
+       rel="noopener"
+       aria-label="Join HASAA WhatsApp group"
+       class="brand whatsapp">
+      <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+        <path d="M20.52 3.48A11.86 11.86 0 0012.03 0C5.41 0 .04 5.37.04 12c0 2.11.55 4.17 1.6 5.99L0 24l6.18-1.62a11.9 11.9 0 005.85 1.5h.01c6.62 0 12-5.37 12-12a11.9 11.9 0 00-3.52-8.4zm-8.49 18.5a9.9 9.9 0 01-5.05-1.38l-.36-.22-3.67.96.98-3.58-.23-.37a9.94 9.94 0 01-1.54-5.28c0-5.49 4.47-9.96 9.97-9.96 2.66 0 5.16 1.04 7.04 2.92a9.92 9.92 0 012.92 7.03c0 5.5-4.47 9.98-9.96 9.98zm5.46-7.46c-.3-.15-1.78-.88-2.05-.98-.27-.1-.47-.15-.67.15s-.77.98-.95 1.18c-.17.2-.35.23-.65.08a8.1 8.1 0 01-2.39-1.47 9.06 9.06 0 01-1.68-2.09c-.18-.3-.02-.47.13-.62.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.07-.15-.67-1.61-.92-2.21-.24-.58-.48-.5-.67-.5h-.57c-.2 0-.52.07-.8.38-.28.3-1.05 1.03-1.05 2.52s1.08 2.93 1.23 3.13c.15.2 2.13 3.26 5.16 4.57.72.31 1.29.5 1.73.64.73.23 1.4.2 1.93.12.59-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43-.08-.13-.28-.2-.58-.35z"/>
+      </svg>
+    </a>
+
+    <!-- X -->
+    <a href="https://x.com/HASchoolAlumni/"
+       target="_blank"
+       rel="noopener"
+       aria-label="HASAA on X"
+       class="brand x">
+      <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+        <path d="M18.244 2H21.5l-7.19 8.22L22.8 22h-6.6l-5.18-6.58L5.6 22H2.34l7.69-8.8L1.2 2h6.73l4.68 5.95L18.24 2z"/>
+      </svg>
+    </a>
+
+    <!-- YouTube -->
+    <a href="https://www.youtube.com/@haschoolalumni"
+       target="_blank"
+       rel="noopener"
+       aria-label="HASAA on YouTube"
+       class="brand youtube">
+      <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+        <path d="M23.5 6.19a3.01 3.01 0 00-2.12-2.13C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.56A3.01 3.01 0 00.5 6.19 31.1 31.1 0 000 12a31.1 31.1 0 00.5 5.81 3.01 3.01 0 002.12 2.13C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.56a3.01 3.01 0 002.12-2.13A31.1 31.1 0 0024 12a31.1 31.1 0 00-.5-5.81zM9.75 15.6V8.4L16.1 12l-6.35 3.6z"/>
+      </svg>
+    </a>
+
+  </div>
+</section>
+
+<section id="next-steps" class="card combined-card">
+  <h2>Get Involved with HASAA</h2>
+
+  <p class="section-intro">
+    Thank you for registering with HASAA. Here are a few simple ways to stay connected,
+    contribute, and make a meaningful impact.
+  </p>
+
+  <div class="two-col">
+    <!-- Left column -->
+    <div>
+      <h3>Next Steps After Registration</h3>
+      <ul>
+        <li>Join official communication channels</li>
+        <li>Explore volunteering and contribution opportunities</li>
+        <li>Plan a visit during key school events</li>
+      </ul>
+    </div>
+
+    <!-- Right column -->
+    <div>
+      <h3>Ways to Contribute & Volunteer</h3>
+      <ul>
+        <li>Volunteer for school events and alumni drives</li>
+        <li>Mentor students or younger alumni</li>
+        <li>Support fundraising and development initiatives</li>
+        <li>Help reconnect batchmates</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CTAs -->
+  <div class="cta-row">
+    <a
+      href="https://forms.gle/gb7YkpfTA2ZQFYPQA"
+      target="_blank"
+      rel="noopener"
+      class="cta-primary"
+    >
+      Volunteer with HASAA
+    </a>
+
+    <div class="cta-secondary">
+      <span>Stay in the loop</span>
+
+      <div class="social-icons">
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/HASAA2012"
+           target="_blank"
+           rel="noopener"
+           class="facebook"
+           aria-label="HASAA on Facebook">
+                <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+		          <path d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24h11.495v-9.294H9.691V11.41h3.13V8.797c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24h-1.918c-1.504 0-1.796.715-1.796 1.763v2.31h3.587l-.467 3.296h-3.12V24h6.116C23.403 24 24 23.403 24 22.674V1.326C24 .597 23.403 0 22.675 0z"/>
+		        </svg>
+
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://chat.whatsapp.com/CfbNk8yJzM0JDDag1Qj7Vh"
+           target="_blank"
+           rel="noopener"
+           class="whatsapp"
+           aria-label="HASAA WhatsApp group">
+      <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+        <path d="M20.52 3.48A11.86 11.86 0 0012.03 0C5.41 0 .04 5.37.04 12c0 2.11.55 4.17 1.6 5.99L0 24l6.18-1.62a11.9 11.9 0 005.85 1.5h.01c6.62 0 12-5.37 12-12a11.9 11.9 0 00-3.52-8.4zm-8.49 18.5a9.9 9.9 0 01-5.05-1.38l-.36-.22-3.67.96.98-3.58-.23-.37a9.94 9.94 0 01-1.54-5.28c0-5.49 4.47-9.96 9.97-9.96 2.66 0 5.16 1.04 7.04 2.92a9.92 9.92 0 012.92 7.03c0 5.5-4.47 9.98-9.96 9.98zm5.46-7.46c-.3-.15-1.78-.88-2.05-.98-.27-.1-.47-.15-.67.15s-.77.98-.95 1.18c-.17.2-.35.23-.65.08a8.1 8.1 0 01-2.39-1.47 9.06 9.06 0 01-1.68-2.09c-.18-.3-.02-.47.13-.62.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.07-.15-.67-1.61-.92-2.21-.24-.58-.48-.5-.67-.5h-.57c-.2 0-.52.07-.8.38-.28.3-1.05 1.03-1.05 2.52s1.08 2.93 1.23 3.13c.15.2 2.13 3.26 5.16 4.57.72.31 1.29.5 1.73.64.73.23 1.4.2 1.93.12.59-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43-.08-.13-.28-.2-.58-.35z"/>
+      </svg>
+        </a>
+
+        <!-- X -->
+        <a href="https://x.com/HASchoolAlumni/"
+           target="_blank"
+           rel="noopener"
+           class="x"
+           aria-label="HASAA on X">
+      <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+        <path d="M18.244 2H21.5l-7.19 8.22L22.8 22h-6.6l-5.18-6.58L5.6 22H2.34l7.69-8.8L1.2 2h6.73l4.68 5.95L18.24 2z"/>
+      </svg>
+        </a>
+
+        <!-- YouTube -->
+        <a href="https://www.youtube.com/@haschoolalumni"
+           target="_blank"
+           rel="noopener"
+           class="youtube"
+           aria-label="HASAA on YouTube">
+      <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+        <path d="M23.5 6.19a3.01 3.01 0 00-2.12-2.13C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.56A3.01 3.01 0 00.5 6.19 31.1 31.1 0 000 12a31.1 31.1 0 00.5 5.81 3.01 3.01 0 002.12 2.13C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.56a3.01 3.01 0 002.12-2.13A31.1 31.1 0 0024 12a31.1 31.1 0 00-.5-5.81zM9.75 15.6V8.4L16.1 12l-6.35 3.6z"/>
+      </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="events">
+  <h2>Best Times to Visit & Reconnect</h2>
+  <ul>
+    <li>
+      <strong>Republic Day – January 26</strong><br>
+      7:30–8:30 am: Flag hoisting & stage program<br>
+      9:00–10:00 am: Meet HASAA members at Coffee Katta (right side of stage)
+    </li>
+    <li>
+      <strong>Independence Day – August 15</strong><br>
+      7:30–8:30 am: Flag hoisting & stage program<br>
+      9:00–10:00 am: Meet HASAA members at Coffee Katta (right side of stage)
+    </li>
+  </ul>
+</section>
+
+<section id="activities">
+  <h2>HASAA Activities & Impact</h2>
+  <div class="table-wrap">
+    <table>
+      <caption>Key activities over the last decade</caption>
+      <thead>
+        <tr>
+          <th>Sl. No.</th>
+          <!--th>Year</th-->
+          <th>Activity</th>
+          <th>Batch · POC</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Multi-batch Alumni Reunion (60th Anniversary) - 2023</td><td>HASAA</td></tr>
+        <tr><td>2</td><td>Renovation of classrooms (flooring, windows, painting etc.)</td><td>1999(M) · Mr. Nitin Dhamale</td></tr>
+        <tr><td>3</td><td><p>Renovation of two classrooms (leakage repair, wall plaster, doors and windows, flooring, electricals, curtains etc.)</p>
+<p>Construction of new toilet block for girls (12 stalls, septic tank installation, plumbing, electricals, painting etc.)</p></td><td>1990(E) · Mr. Sachin Bodhani</td></tr>
+        <tr><td>4</td><td>Repair and replacement of 40 classroom doors with fittings</td><td>1990 · Mr. Darshan Dugad</td></tr>
+        <tr><td>5</td><td><p>Repair work of Main building roof leakage</p><p>Tin shed on new building terrace & painting work</p></td><td>1991(M) · Mr. Mahesh Landage</td></tr>
+        <tr><td>6</td><td><p>Renovation of Laboratory (wall plaster, painting, tables with granite platforms)</p><p>Repair work of Water Purifier system</p></td><td>1991(M) · Mr. Sachin Landge · Ms. Usha Khot</td></tr>
+        <tr><td>6</td><td><p>Repair of existing toilet block for girls (leakage repair, flooring, plumbing, electricals, painting etc.)</p><p>Renovation of school building (sajja work)</p></td><td>1987(M) · Mr. Surendra More · Ms. Archana Rane</td></tr>
+        <tr><td>7</td><td>8 Fans for Rajat Bhavan and 16 tables for Teachers</td><td>1983</td></tr>
+        <tr><td>8</td><td><p>Renovation of washrooms (flooring, painting, plumbing etc.)</p><p>Re-surfacing of playground</p><p>Repair and re-surfacing of internal roads</p></td><td>1996(M) · Mr. Surendra Pasalkar · Mr. Sadguru Kadam</td></tr>
+        <tr><td>9</td><td>Library renovation (wall plaster, painting)</td><td>2000 · Ms. Meghana Landge</td></tr>
+        <tr><td>10</td><td>11 steel cupboards for Library</td><td>1996(E) · Mr. Jayant Darawade</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="office-bearers">
+  <h2>Office Bearers & Members</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>Name</th>
+          <th>Batch</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>President</td><td>Mr. Shashank S. Paramane</td><td>1998</td><td>Fundraising & Partnerships</td></tr>
+        <tr><td>Vice-President</td><td>Mr. Ganesh R. Gaonkar</td><td>1998</td><td>Volunteer Coordinator</td></tr>
+        <tr><td>Secretary</td><td>Mr. Ashish Ajay Mhase</td><td>1998</td><td>Finance & Compliance Advisor</td></tr>
+        <tr><td>Treasurer</td><td>Mr. Kaushik Kochhar</td><td>1998</td><td>Data & Alumni Records</td></tr>
+        <tr><td>Hon. Member</td><td>Mrs. D. Korke</td><td>—</td><td>Headmistress, H.A. School (S.U.)</td></tr>
+        <tr><td>Member</td><td>Mr. Ashok Thorat</td><td>1983</td><td>Head, School Liaison Coordination</td></tr>
+        <tr><td>Member</td><td>Mr. Ravi Pillay</td><td>1982</td><td>Head, Cultural Committee</td></tr>
+        <tr><td>Member</td><td>Mr. Surendra More</td><td>1987</td><td>Head, Alumni Outreach (1970 - 1999)</td></tr>
+        <tr><td>Member</td><td>Mr. Umesh Pawar</td><td>1994</td><td>Head, Events</td></tr>
+        <tr><td>Member</td><td>Mr. Ameen Aziz</td><td>2003</td><td>Head, Communications & Digital</td></tr>
+        <tr><td>Member</td><td>Mr. Vishal Gorane</td><td>2008</td><td>Head, Alumni Outreach (2000 batch & later)</td></tr>
+
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="donate">
+  <h2>Donate to HASAA</h2>
+  <p>
+      Contributions to the Hindustan Antibiotics School Alumni Association (HASAA)
+      help sustain and expand initiatives that strengthen the school community and
+      support current and future generations of students.
+    </p>
+
+    <p>
+      Donations received by HASAA are utilised for a range of activities, including:
+    </p>
+
+    <ul>
+      <li>Maintaining and operating the HASAA website and communication platforms</li>
+      <li>Organising alumni committee meetings and coordination activities</li>
+      <li>Supporting educational initiatives and academic enrichment programs</li>
+      <li>Encouraging art, cultural, and sports activities for students</li>
+      <li>Providing equipment, learning resources, and basic facilities</li>
+      <li>Contributing towards infrastructure improvement and school development</li>
+      <li>Conducting alumni get-togethers and student–alumni interaction events</li>
+    </ul>
+
+    <p>
+      A glimpse of these efforts can be seen in the <a href="#activities">Activities</a> section
+      of this website.
+    </p>
+
+    <p>
+      HASAA is committed to responsible and transparent use of all contributions.
+      Funds are managed by the elected alumni committee and utilised strictly for
+      activities aligned with the objectives of the association. Wherever applicable,
+      details of initiatives and outcomes are shared with members through official
+      communication channels.
+    </p>
+
+    <p>
+      Your support, whether small or large, plays a meaningful role in sustaining
+      these efforts and strengthening the bond between alumni and the school.
+  </p>
+  <p>
+    Account Name: Hindustan Antibiotics School Alumni Asso<br>
+    Account No.: 032101008036<br>
+    IFSC: ICIC0000321<br>
+    Bank: ICICI Bank Ltd, Chinchwad, Pune
+  </p>
+<p>
+  After making a contribution, please share the transaction details with us by email at
+  <a href="mailto:alumni.hasaa@gmail.com">alumni.hasaa@gmail.com</a>.
+  Kindly include a screenshot or reference number of the bank transfer, along with
+  your complete postal address (including PIN code) and a contact number.
+</p>
+
+<p>
+  For contributions exceeding ₹5,000, submission of PAN details is mandatory as per
+  applicable regulations. Upon confirmation of the donation, an official receipt
+  will be issued to you.
+</p>
+</section>
+
+<section id="contact" class="card">
+  <h2>Contact</h2>
+
+  <p>
+    For queries, suggestions, or collaboration opportunities, you may reach us at:
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <a href="mailto:alumni.hasaa@gmail.com">alumni.hasaa@gmail.com</a>
+  </p>
+
+<div class="social-icons" aria-label="HASAA social media links">
+
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/HASAA2012"
+     target="_blank"
+     rel="noopener"
+     aria-label="HASAA on Facebook"
+     class="brand facebook">
+    <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+      <path d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24h11.495v-9.294H9.691V11.41h3.13V8.797c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24h-1.918c-1.504 0-1.796.715-1.796 1.763v2.31h3.587l-.467 3.296h-3.12V24h6.116C23.403 24 24 23.403 24 22.674V1.326C24 .597 23.403 0 22.675 0z"/>
+    </svg>
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://chat.whatsapp.com/CfbNk8yJzM0JDDag1Qj7Vh"
+     target="_blank"
+     rel="noopener"
+     aria-label="Join HASAA WhatsApp group"
+     class="brand whatsapp">
+    <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+      <path d="M20.52 3.48A11.86 11.86 0 0012.03 0C5.41 0 .04 5.37.04 12c0 2.11.55 4.17 1.6 5.99L0 24l6.18-1.62a11.9 11.9 0 005.85 1.5h.01c6.62 0 12-5.37 12-12a11.9 11.9 0 00-3.52-8.4zm-8.49 18.5a9.9 9.9 0 01-5.05-1.38l-.36-.22-3.67.96.98-3.58-.23-.37a9.94 9.94 0 01-1.54-5.28c0-5.49 4.47-9.96 9.97-9.96 2.66 0 5.16 1.04 7.04 2.92a9.92 9.92 0 012.92 7.03c0 5.5-4.47 9.98-9.96 9.98zm5.46-7.46c-.3-.15-1.78-.88-2.05-.98-.27-.1-.47-.15-.67.15s-.77.98-.95 1.18c-.17.2-.35.23-.65.08a8.1 8.1 0 01-2.39-1.47 9.06 9.06 0 01-1.68-2.09c-.18-.3-.02-.47.13-.62.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.07-.15-.67-1.61-.92-2.21-.24-.58-.48-.5-.67-.5h-.57c-.2 0-.52.07-.8.38-.28.3-1.05 1.03-1.05 2.52s1.08 2.93 1.23 3.13c.15.2 2.13 3.26 5.16 4.57.72.31 1.29.5 1.73.64.73.23 1.4.2 1.93.12.59-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43-.08-.13-.28-.2-.58-.35z"/>
+    </svg>
+  </a>
+
+  <!-- X (Twitter) -->
+  <a href="https://x.com/HASchoolAlumni/"
+     target="_blank"
+     rel="noopener"
+     aria-label="HASAA on X"
+     class="brand x">
+    <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+      <path d="M18.244 2H21.5l-7.19 8.22L22.8 22h-6.6l-5.18-6.58L5.6 22H2.34l7.69-8.8L1.2 2h6.73l4.68 5.95L18.24 2z"/>
+    </svg>
+  </a>
+
+  <!-- YouTube -->
+  <a href="https://www.youtube.com/@haschoolalumni"
+     target="_blank"
+     rel="noopener"
+     aria-label="HASAA on YouTube"
+     class="brand youtube">
+    <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+      <path d="M23.5 6.19a3.01 3.01 0 00-2.12-2.13C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.56A3.01 3.01 0 00.5 6.19 31.1 31.1 0 000 12a31.1 31.1 0 00.5 5.81 3.01 3.01 0 002.12 2.13C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.56a3.01 3.01 0 002.12-2.13A31.1 31.1 0 0024 12a31.1 31.1 0 00-.5-5.81zM9.75 15.6V8.4L16.1 12l-6.35 3.6z"/>
+    </svg>
+  </a>
+
+</div>
+
+  <div class="contact-location">
+    <p>
+      <strong>School Address:</strong><br>
+      Hindustan Antibiotics School<br>
+      Hindustan Antibiotics Colony, Pimpri<br>
+      Pune – 411018
+    </p>
+
+    <div class="map-embed">
+      <iframe
+        title="Hindustan Antibiotics School Location"
+        src="https://www.google.com/maps?q=Hindustan%20Antibiotics%20School%20Pimpri%20Pune&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <img
+      src="assets/images/hasaa-logo-tiny.png"
+      alt="HASAA logo"
+      class="footer-logo"
+    />
+
+    <div class="footer-text">
+      <strong>Hindustan School Alumni Association (HASAA)</strong>
+
+      <p>
+        Registration No. MAH 348/2012/Pune<br>
+        DARPAN ID MH/2025/0632431
+      </p>
+
+      <address>
+        C/o Hindustan Antibiotics School<br>
+        Hindustan Antibiotics Colony, Pimpri<br>
+        Pune – 411018
+      </address>
+    </div>
+
+    <!-- 👇 NEW: Disclaimer block (added, not replacing anything) -->
+    <div class="footer-disclaimer">
+      <p class="copyright">
+        © 2026 Hindustan Antibiotics School Alumni Association (HASAA)
+      </p>
+
+      <p>
+        All information on this website is owned by Hindustan Antibiotics School Alumni
+        Association (HASAA) and may not be reproduced without prior written consent.
+      </p>
+
+      <p>
+        HASAA and Hindustan Antibiotics School do not bear any responsibility towards the
+        accuracy or correctness of this information. For any critical matters, please
+        contact the school directly to obtain up-to-date information.
+      </p>
+
+      <p>
+        This website serves as a source of information only. No statements or opinions
+        published here may be considered or used as the official view of the school or
+        any of the institutions connected with it.
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+
+<!-- =====================
+     INTERACTIONS
+     ===================== -->
+<script>
+  // TOC toggle (mobile)
+  const toc = document.getElementById("toc");
+  const toggle = document.getElementById("toc-toggle");
+  toggle.addEventListener("click", () => {
+    toc.style.display = toc.style.display === "block" ? "none" : "block";
+  });
+
+  // Intent-based highlighting
+  const params = new URLSearchParams(window.location.search);
+  const intent = params.get("intent");
+  if (intent) {
+    const section = document.getElementById(intent);
+    if (section) {
+      section.classList.add("highlight");
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+</script>
+<script>
+  (function () {
+    const slides = document.querySelectorAll(".carousel-slide");
+    const prev = document.querySelector(".carousel-btn.prev");
+    const next = document.querySelector(".carousel-btn.next");
+    let index = 0;
+
+    function showSlide(i) {
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle("active", idx === i);
+      });
+    }
+
+    prev.addEventListener("click", () => {
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide(index);
+    });
+
+    next.addEventListener("click", () => {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    });
+
+    // Optional auto-rotate every 6 seconds
+    setInterval(() => {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    }, 6000);
+  })();
+</script>
+
+</body>
+</html>
