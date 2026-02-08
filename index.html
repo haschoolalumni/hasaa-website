@@ -1394,9 +1394,6 @@ nav#toc a {
 </script>
 
 <script>
-  // Set current year dynamically
-  document.getElementById("current-year").textContent =
-    new Date().getFullYear();
 
   // Fetch alumni snapshot data
   fetch("https://script.google.com/macros/s/AKfycbyi4V-XRcXQzv7a0MyirmB4Djilq9zjImwX5QYkeErJw3OnBD_1guZyBs55EQuGh8cyoA/exec")
@@ -1444,6 +1441,10 @@ nav#toc a {
 	    new Date(data.lastUpdated).getFullYear();
 
     });
+
+  // Set current year dynamically
+  document.getElementById("current-year").textContent =
+    new Date().getFullYear();
 </script>
 
 
