@@ -671,6 +671,26 @@ nav#toc a {
   }
 }
 
+/* =====================
+   UTILITIES - NEW JOINERS BADGE
+   ===================== */
+
+
+.new-joins-badge {
+  display: inline-block;
+  margin: 0.5rem 0 1rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(75,63,140,0.08);
+  color: var(--primary-dark);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.new-joins-badge span {
+  font-weight: 700;
+}
+
   </style>
 </head>
 
@@ -682,6 +702,7 @@ nav#toc a {
 <nav id="toc" aria-label="Page sections">
   <strong>Contents</strong>
   <a href="#about">About</a>
+  <a href="#alumni-snapshot">Alumni Snapshot</a>
   <a href="#next-steps">Next Steps</a>
   <a href="#events">Visit School</a>
   <a href="#activities">Activities</a>
@@ -693,6 +714,7 @@ nav#toc a {
 <div id="toc-toggle" aria-label="Open table of contents" role="button" tabindex="0">☰</div>
 
 <header id="welcome">
+  <link rel="icon" href="/favicon.png" sizes="any">
   <div class="masthead-inner">
     <img
       src="assets/images/hasaa-logo-large.png"
@@ -894,6 +916,66 @@ nav#toc a {
   </div>
 </section>
 
+<section id="alumni-snapshot">
+  <h2>Alumni Snapshot</h2>
+
+  <p>
+    Our alumni network includes
+    <strong>3,100+</strong> members across batches and geographies.
+    Below is a snapshot of
+    new members who joined us in <!--strong>
+      <span id="current-year"></span>
+    </strong--> this year,
+    grouped by decade of passing Std X.
+  </p>
+
+  <div id="new-joins-badge" class="new-joins-badge">
+    <span id="new-joins-count">–</span>
+    new alumni joined in
+    <span id="badge-year">–</span>
+    so far
+  </div>
+
+
+  <!-- Decade-wise table -->
+  <div class="table-wrap">
+    <table id="decade-table">
+      <thead>
+        <tr>
+          <th>Batch (Decade)</th>
+          <th>New Members (This Year)</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <p style="font-size:0.85rem; color:var(--muted); margin-top:0.5rem;">
+    <em>
+      Counts reflect alumni who registered through the form this year.
+    </em>
+  </p>
+
+  <!-- Latest member highlight -->
+  <div id="latest-member" style="margin-top:1.25rem; display:none;">
+    <p><strong id="welcome-line"></strong></p>
+    <ul id="member-details"></ul>
+  </div>
+
+  <!-- Soft CTA -->
+  <p style="margin-top:0.6rem; color:var(--muted); font-size:0.95rem;">
+    Seeing batchmates reconnect?
+    <a
+      href="https://forms.gle/CLYLnd5KFzwAej4S7"
+      target="_blank"
+      rel="noopener"
+    >
+      Join your batchmates
+    </a>
+    and stay connected — it takes less than two minutes.
+  </p>
+</section>
+
 <section id="next-steps" class="card combined-card">
   <h2>Get Involved with HASAA</h2>
 
@@ -1013,7 +1095,7 @@ nav#toc a {
       <caption>Key activities over the last decade</caption>
       <thead>
         <tr>
-          <th>Sl. No.</th>
+          <th>#</th>
           <!--th>Year</th-->
           <th>Activity</th>
           <th>Batch · POC</th>
@@ -1310,6 +1392,60 @@ nav#toc a {
     }, 6000);
   })();
 </script>
+
+<script>
+  // Set current year dynamically
+  document.getElementById("current-year").textContent =
+    new Date().getFullYear();
+
+  // Fetch alumni snapshot data
+  fetch("https://script.google.com/macros/s/AKfycbyi4V-XRcXQzv7a0MyirmB4Djilq9zjImwX5QYkeErJw3OnBD_1guZyBs55EQuGh8cyoA/exec")
+    .then(r => r.json())
+    .then(data => {
+
+      // --- Decade table ---
+      const tbody = document.querySelector("#decade-table tbody");
+      tbody.innerHTML = "";
+
+      Object.entries(data.decadeCounts).forEach(([decade, count]) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${decade}</td><td>${count}</td>`;
+        tbody.appendChild(row);
+      });
+
+      // --- Latest member ---
+      if (!data.latestMember) return;
+
+      const m = data.latestMember;
+      const joinedDate =
+        new Date(data.lastUpdated).toLocaleDateString();
+
+      document.getElementById("welcome-line").textContent =
+        `Welcome our newest member from the ${m["Year of passing Std X"]} batch ` +
+        `(${m["Medium"]}), joined on ${joinedDate}`;
+
+      const ul = document.getElementById("member-details");
+      ul.innerHTML = "";
+
+      ["Profession", "Organization / Company", "Designation"].forEach(key => {
+        if (!m[key]) return;
+        const li = document.createElement("li");
+        li.textContent = `${key}: ${m[key]}`;
+        ul.appendChild(li);
+      });
+
+      document.getElementById("latest-member").style.display = "block";
+
+      // --- New joins badge ---
+	  document.getElementById("new-joins-count").textContent =
+	    data.totalResponses;
+
+	  document.getElementById("badge-year").textContent =
+	    new Date(data.lastUpdated).getFullYear();
+
+    });
+</script>
+
 
 <script data-goatcounter="https://hasaa.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
