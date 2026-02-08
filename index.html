@@ -692,6 +692,64 @@ nav#toc a {
   font-weight: 700;
 }
 
+/* Mobile header bar */
+.mobile-header {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  background: #4B3F8C; /* HASAA purple */
+  color: white;
+}
+@media (max-width: 899px) {
+  .mobile-header {
+    display: flex;
+  }
+}
+
+/* Burger button */
+#burger {
+  font-size: 1.4rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* Optional title */
+.mobile-title {
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+/* Mobile only */
+@media (min-width: 900px) {
+  nav#toc { display: block; }
+}
+
+/* Mobile TOC behaviour */
+@media (max-width: 899px) {
+  nav#toc {
+    display: none;               /* hidden by default */
+    position: fixed;
+    top: 56px;                   /* below purple header */
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: #ffffff;
+    border-top: 1px solid var(--border);
+    padding: 1rem;
+  }
+
+  nav#toc.open {
+    display: block;
+  }
+}
+
   </style>
 </head>
 
@@ -715,6 +773,10 @@ nav#toc a {
 <div id="toc-toggle" aria-label="Open table of contents" role="button" tabindex="0">☰</div>
 
 <header id="welcome">
+  <div class="mobile-header">
+      <button id="burger" aria-label="Menu">☰</button>
+      <span class="mobile-title">HASAA</span>
+  </div>
   <div class="masthead-inner">
     <img
       src="assets/images/hasaa-logo-large.png"
@@ -1445,6 +1507,16 @@ nav#toc a {
   // Set current year dynamically
   document.getElementById("current-year").textContent =
     new Date().getFullYear();
+</script>
+
+<script>
+  const burger = document.getElementById("burger");
+  const menu = document.getElementById("toc");
+
+  burger.addEventListener("click", () => {
+  menu.classList.toggle("open");
+  burger.textContent = menu.classList.contains("open") ? "✕" : "☰";
+});
 </script>
 
 
